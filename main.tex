@@ -1,0 +1,145 @@
+\documentclass[10pt,xcolor={usenames},fleqn,mathserif,serif]{beamer}
+\hypersetup{pdfpagemode=FullScreen}
+%% colors
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{brilliantlavender}{rgb}{0.96, 0.73, 1.0}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{violetw}{rgb}{0.93, 0.51, 0.93}
+\definecolor{Veronica}{rgb}{0.63, 0.36, 0.94}
+\definecolor{atomictangerine}{rgb}{1.0, 0.6, 0.4}
+\definecolor{darkgray}{rgb}{0.66, 0.66, 0.66}
+\definecolor{brightcerulean}{rgb}{0.11, 0.67, 0.84}
+\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{ochre}{rgb}{0.8, 0.47, 0.13}
+\definecolor{midnightblue}{rgb}{0.1, 0.1, 0.44}
+\definecolor{lemon}{rgb}{1.0, 0.97, 0.0}
+\definecolor{grey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{almond}{rgb}{0.94, 0.87, 0.8}
+\definecolor{bf}{RGB}{88, 86, 88}
+\definecolor{bb}{RGB}{177, 177, 177}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% importa pacchetti
+\usepackage{usepkg}
+\usepackage{beamersetup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni generali
+\usepackage{functions}
+%http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\newcommand{\setmuskip}[2]{#1=#2\relax} %%problem usinig mu with calc (req by mathtools) loaded
+\usepackage{sources}
+%\usepackage{length}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni per questo file main
+\usepackage{mathOp}
+%%%%%%%%%%%%%%%%%%%%%%%
+\def\status{coazione}%ripeter
+\def\keeptrying{coazione}
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{LocalF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Meccanica celeste (Beamer)}
+% A subtitle is optional and this may be deleted
+\subtitle{Moto in potenziale Newtoniano, sfera celeste, perturbazioni, determinazione orbite, ''meccanica analitica''.}
+%\author{F.~Author\inst{1} \and S.~Another\inst{2}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+%\institute[Universities of Somewhere and Elsewhere] % (optional, but mostly needed)
+%{
+% \inst{1}
+% Department of Computer Science\\
+%  University of Somewhere
+%  \and
+%  \inst{2}%
+%  Department of Theoretical Philosophy\\
+%  University of Elsewhere}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+\date{NOW, \today}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+\subject{Orbite Kepleriane, effetti perturbativi, determinazione orbite da osservazioni, meccanica analitica. Moto dei 3 corpi.}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+% Let's get started
+
+\begin{document}
+
+\input{tikzdir}%%contain tikz files as filecontents
+\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{2pt}\setlength\belowdisplayskip{2pt}\setlength\abovedisplayshortskip{2pt}\setlength\belowdisplayshortskip{2pt}}{}
+\addtobeamertemplate{block begin}{\vspace*{-3pt}}{}
+\addtobeamertemplate{block end}{}{\vspace*{-3pt}}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Section and subsections will appear in the presentation overview
+% and table of contents.
+%\frame{\tableofcontents[onlyparts]}
+
+\begin{frame}[allowframebreaks]{Sistemi planetari: argomenti del corso}\linkdest{intro}
+\tableofcontents[onlyparts]
+\end{frame}
+
+\begin{wordonframe}{Perch\'e studio queste cose?? Sviluppi; futuro.}
+
+\end{wordonframe}
+
+\part{Moto 2 corpi in potenziale newtoniano}\linkdest{part:kepler}
+\begin{frame}{this part toc}
+\begin{itemize}
+\item Problema ridotto: Potenziale newtoniano/ Esistenza orbite chiuse
+\item costanti del moto
+\item leggi di Keplero
+\item Traiettoria o legge oraria
+\item elementi orbitali
+\item approssimazione piccola eccentricit\'a
+\item determinazione orbita pianeta orbitante attorno al Sole da 3 osservabili
+\end{itemize}
+\end{frame}
+\input{twobody}
+
+\section{Determinazione orbita da 3 osservabili (Solar system)}\linkdest{sec:orbitobs}
+\input{obs2orb}
+
+\part{Problema Newtoniano: meccanica analitica.}\linkdest{part:analytics}
+\begin{frame}{this part toc}
+\begin{itemize}
+\item Meccanica analitica: equazione di H-J, separazione di H-J, e soluzione
+\item variabili canoniche
+\item (azione ridotta)
+\item Teorema di Liouville-Arnold: soluzione equazioni del moto tramite quadratura
+\item degenerazione periodi orbitali
+\end{itemize}
+\end{frame}
+\input{analytic}
+
+\part{Attrazione non Newtoniana, orbite non Kepleriane: perturbazioni.}\linkdest{part:perturbations}
+\begin{frame}{this part toc}
+\begin{itemize}
+\item Potenziale non-Newtoniano: perturbazioni orbite non Kepleriane
+\item Sviluppi in multipoli dell'energia potenziale
+\item Moto perturbato
+\item Metodo di Newton
+\item Precessione luni-solare
+\item Perturbazione degli elementi orbitali: meccanica analitica.
+\item Perturbazioni periodiche e secolari
+\item Analogo quantistico
+\item Elementi osculanti
+\end{itemize}
+\end{frame} 
+\input{nonkeplerian}
+
+\part{Orbite non Kepleriane: problema dei 3 corpi.}\linkdest{part:threebody}
+\begin{frame}{this part toc}
+\begin{itemize}
+\item Problema dei 3 corpi ristretto
+\item criterio di Tisserand
+\item Problema generale dei 3 corpi
+\item comportamento caotico
+\item Disuguaglianza di Easton
+\end{itemize}
+\end{frame}
+\input{threebody}
+
+\end{document}
